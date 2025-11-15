@@ -16,7 +16,9 @@ export async function getLevel() {
 
 export async function setLevel(level) {
   // setLoggerInstanceLevel(logger, level);
-  loggers.forEach((instance) => setLoggerInstanceLevel(instance, level));
+  loggers.forEach((instance) => {
+    setLoggerInstanceLevel(instance, level);
+  });
   await userConfiguration.setKey("logging", { level });
   return level;
 }
